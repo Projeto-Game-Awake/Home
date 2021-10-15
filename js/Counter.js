@@ -20,21 +20,22 @@ GameAwakeUtils.Counter = {
         this.times = times;
 
         if(this.back) {
-            return;
+            if(this.back.alpha == 1) {
+                return;
+            }
         } else {
             this.back = scene.add.rectangle(0,0,800,600,0x000000);
+            this.back.alpha == 1
+            this.text = scene.add.text(x, y, message, style);
+            this.text.alpha == 1
+            this.number = scene.add.text(400, 300, "", style);
+            this.number.alpha == 1
         }
         this.back.alpha = 0.6;
         this.back.setOrigin(0);
-    
-        if(this.text == null) {
-            this.text = scene.add.text(x, y, message, style);
-        }
+
         this.text.setOrigin(0.5);
 
-        if(this.text == null) {
-            this.number = scene.add.text(400, 300, "", style);
-        }
         this.number.setOrigin(0.5);
     
         this.text.setStroke('#000000', 4);
@@ -57,13 +58,10 @@ GameAwakeUtils.Counter = {
             });
 
             scene.time.delayedCall(times * 1000, function() {
-                this.back.destroy();
-                this.back = null;
-                this.text.destroy();
-                this.text = null;
-                this.number.destroy();
-                this.number = null;
-                this.times = 0;
+                this.back.alpha = 0;
+                this.text.alpha = 0;
+                this.number.alpha = 0;
+                this.times = 1;
                 callback();
             }, [], this);
         }
