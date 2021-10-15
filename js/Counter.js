@@ -1,8 +1,4 @@
 GameAwakeUtils.Counter = {
-    create: function() {
-        this.back = null;
-        this.text = null;
-    },
     show: function(
         scene=null,
         x=400,
@@ -23,10 +19,10 @@ GameAwakeUtils.Counter = {
         }
         this.times = times;
 
-        if(this.back == null) {
-           this.back = scene.add.rectangle(0,0,800,600,0x000000);
-        } else {
+        if(this.back) {
             return;
+        } else {
+            this.back = scene.add.rectangle(0,0,800,600,0x000000);
         }
         this.back.alpha = 0.6;
         this.back.setOrigin(0);
