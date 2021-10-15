@@ -25,11 +25,11 @@ GameAwakeUtils.Counter = {
             }
         } else {
             this.back = scene.add.rectangle(0,0,800,600,0x000000);
-            this.back.alpha == 1
+            this.back.alpha = 1
             this.text = scene.add.text(x, y, message, style);
-            this.text.alpha == 1
+            this.text.alpha = 1
             this.number = scene.add.text(400, 300, "", style);
-            this.number.alpha == 1
+            this.number.alpha = 1
         }
         this.back.alpha = 0.6;
         this.back.setOrigin(0);
