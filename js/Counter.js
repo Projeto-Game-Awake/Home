@@ -1,4 +1,8 @@
 GameAwakeUtils.Counter = {
+    create: function() {
+        this.back = null;
+        this.text = null;
+    },
     show: function(
         scene=null,
         x=400,
@@ -19,17 +23,25 @@ GameAwakeUtils.Counter = {
         }
         this.times = times;
 
-        let back = scene.add.rectangle(0,0,800,600,0x000000);
-        back.alpha = 0.6;
-        back.setOrigin(0);
+        if(this.back == null) {
+           this.back = scene.add.rectangle(0,0,800,600,0x000000);
+        } else {
+            return;
+        }
+        this.back.alpha = 0.6;
+        this.back.setOrigin(0);
     
-        const text = scene.add.text(x, y, message, style);
-        text.setOrigin(0.5);
+        if(this.text == null) {
+            this.text = scene.add.text(x, y, message, style);
+        }
+        this.text.setOrigin(0.5);
 
-        this.number = scene.add.text(400, 300, "", style);
+        if(this.text == null) {
+            this.number = scene.add.text(400, 300, "", style);
+        }
         this.number.setOrigin(0.5);
     
-        text.setStroke('#000000', 4);
+        this.text.setStroke('#000000', 4);
         //  Apply the gradient fill.
         let gradient = text.context.createLinearGradient(0, 0, 0, text.height);
     
@@ -38,20 +50,27 @@ GameAwakeUtils.Counter = {
         } else {
             gradient = this.createGradientFail(gradient);
         }
-        text.setFill(gradient);
+        this.text.setFill(gradient);
     
-        let timer = scene.time.addEvent({
-            delay: 1000,
-            callback: () => { this.doCountDown() },
-            repeat: times - 1
-        });
-        this.doCountDown();
-        scene.time.delayedCall(times * 1000, function() {
-            back.destroy();
-            text.destroy();
-            this.number.destroy();
-            callback();
-        }, [], this);
+        if(times == this.times) {
+            this.doCountDown();
+            let timer = scene.time.addEvent({
+                delay: 1000,
+                callback: () => { this.doCountDown() },
+                repeat: times - 1
+            });
+
+            scene.time.delayedCall(times * 1000, function() {
+                this.back.destroy();
+                this.back = null;
+                this.text.destroy();
+                this.text = null;
+                this.number.destroy();
+                this.number = null;
+                this.times = 0;
+                callback();
+            }, [], this);
+        }
     },
     doCountDown: function() {
         this.number.setText(this.times);
