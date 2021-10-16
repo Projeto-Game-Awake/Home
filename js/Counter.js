@@ -17,30 +17,34 @@ GameAwakeUtils.Counter = {
         if(scene == null) {
             return;
         }
-        this.times = times;
 
-        if(this.back) {
-            if(this.back.alpha == 1) {
+        if(this.text) {
+            if(this.isVisible) {
                 return;
             }
         } else {
             this.back = scene.add.rectangle(0,0,800,600,0x000000);
-            this.back.alpha = 1
             this.text = scene.add.text(x, y, message, style);
-            this.text.alpha = 1
             this.number = scene.add.text(400, 300, "", style);
-            this.number.alpha = 1
         }
+
+        this.isVisible = true;
+
+        this.times = times;
+
         this.back.alpha = 0.6;
         this.back.setOrigin(0);
 
+        this.text.alpha = 1
+        this.text.setText(message);
         this.text.setOrigin(0.5);
-
+        
+        this.number.alpha = 1
         this.number.setOrigin(0.5);
     
         this.text.setStroke('#000000', 4);
         //  Apply the gradient fill.
-        let gradient = text.context.createLinearGradient(0, 0, 0, text.height);
+        let gradient = this.text.context.createLinearGradient(0, 0, 0, this.text.height);
     
         if(type==0) {
             gradient = this.createGradientSucess(gradient);
@@ -48,27 +52,23 @@ GameAwakeUtils.Counter = {
             gradient = this.createGradientFail(gradient);
         }
         this.text.setFill(gradient);
-    
-        if(times == this.times) {
-            this.doCountDown();
-            let timer = scene.time.addEvent({
-                delay: 1000,
-                callback: () => { this.doCountDown() },
-                repeat: times - 1
-            });
+        this.callback = callback;
 
-            scene.time.delayedCall(times * 1000, function() {
-                this.back.alpha = 0;
-                this.text.alpha = 0;
-                this.number.alpha = 0;
-                this.times = 1;
-                callback();
-            }, [], this);
+        if(times == this.times) {
+            this.doCountDown(callback);
+            this.interval = setInterval(() => { this.doCountDown(callback) }, 1000);
         }
     },
-    doCountDown: function() {
-        this.number.setText(this.times);
-        this.times--;
+    doCountDown: function(callback) {
+        if(this.times == 0) {
+            clearInterval(this.interval);
+            this.interval = null;
+            this.hide();
+            callback();
+        } else {
+            this.number.setText(this.times);
+            this.times--;
+        }
     },
     createGradientSucess: function(gradient) {
         gradient.addColorStop(0, '#111111');
@@ -83,5 +83,15 @@ GameAwakeUtils.Counter = {
         gradient.addColorStop(.5, '#aaaaaa');
         gradient.addColorStop(1, '#111111');
         return gradient;
+    },
+    hide() {
+        if(this.number) {
+            this.back.alpha = 0;
+            this.text.alpha = 0;
+            this.number.alpha = 0;
+            this.number.setText("");
+            this.times = 1;
+            this.isVisible = false;
+        }
     }
 }
