@@ -2,3 +2,12 @@
     background-color: #cccccc;
     border-radius: 15px;
 }
+
+img {
+    width: 180px;
+    height: 240px;
+}
+
+h5, small {
+    margin-right: 10px;
+}

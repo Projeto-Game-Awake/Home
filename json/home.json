@@ -1,0 +1,24 @@
+{
+    "tema": {
+        "aulas":[
+            {
+                "nome":"Estudo",
+                "jogos": [
+                ]
+            }
+        ]
+    },
+    "alianca":{
+        "aulas":[
+            {
+                "nome":"1 - Aula Inaugural",
+                "jogos": [
+                    {
+                        "id":6,
+                        "parm":""
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "jogos":[
+        {
+            "url":"https://game-awake.github.io/Memorizando-e-Aprendendo",
+            "nome":"Memorizando e aprendendo",
+            "descricao":"Jogo da Memória"
+        },
+        {
+            "url":"/FCG",
+            "nome":"FCG",
+            "descricao":"Falange Card Game: Equipe de resgate em diversas situações do dia a dia"
+        },
+        {
+            "url":"/Acao-e-Reacao",
+            "nome":"Ação e Reação",
+            "descricao":"Tomar decisões"
+        },
+        {
+            "url":"/Encarnando-outra-vez",
+            "nome":"Encarnando outra vez",
+            "descricao":"Tabuleiro com perguntas, mini-games"
+        },
+        {
+            "url":"/BRC",
+            "nome":"BRC",
+            "descricao":"Buscando o Resgate Cernil: Uma viagem ao seu mundo íntimo dos sentimentos"
+        },
+        {
+            "url":"/Palavras-Cruzadas",
+            "nome":"Palavras Cruzadas",
+            "descricao":"Palavras Cruzadas"
+        },
+        {
+            "url":"https://pga-Palavra-na-Testa.herokuapp.com",
+            "nome":"Palavra na Testa",
+            "descricao":"Cada jogador recebe uma palavra para adivinhar e tem que pedir dicas para os outros"
+        }
+    ]
+}
