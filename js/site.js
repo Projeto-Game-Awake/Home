@@ -1,7 +1,7 @@
 let jogos = null;
 let home = null;
 
-$.get("/json/jogos.json", function(data, status){
+$.get("json/jogos.json", function(data, status){
     jogos = data.jogos;
     let ul = $("#accordion-jogo");
     $.each( jogos , function ( index, value ){
@@ -16,7 +16,7 @@ $.get("/json/jogos.json", function(data, status){
     });
 
 
-$.get("/json/home.json", function(data, status){
+$.get("json/home.json", function(data, status){
     home = data;
     mostraAulas("tema");
     mostraAulas("alianca");
