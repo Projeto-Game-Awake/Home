@@ -34,6 +34,11 @@
             "url":"https://pga-Palavra-na-Testa.herokuapp.com",
             "nome":"Palavra na Testa",
             "descricao":"Cada jogador recebe uma palavra para adivinhar e tem que pedir dicas para os outros"
+        },
+        {
+            "url":"/Sublinha-Palavras",
+            "nome":"Sublinha Palavras",
+            "descricao":"Caça-Palavras"
         }
     ]
 }

@@ -3,10 +3,11 @@ let home = null;
 
 $.get("json/jogos.json", function(data, status){
     jogos = data.jogos;
+    jogosOrdenados = clone(jogos).sort(comparar);
     let ul = $("#accordion-jogo");
-    $.each( jogos , function ( index, value ){
-    let jogo = data.jogos[index];
-    let a = '<a href="'+jogo.url+'" class="list-group-item list-group-item-action flex-column align-items-start">'+
+    $.each( jogosOrdenados , function ( index, value ){
+        let jogo = jogosOrdenados[index];
+        let a = '<a href="'+jogo.url+'" class="list-group-item list-group-item-action flex-column align-items-start">'+
     '  <div class="d-flex w-50 justify-content-between">'+
     '    <small>'+jogo.descricao+'</small>'+
     '    <img src="imagens/'+convertNome(jogo.nome)+'.png" />'+            
@@ -22,9 +23,13 @@ $.get("json/home.json", function(data, status){
     mostraAulas("alianca");
 
     function mostraAulas( tipo ){
-    let accordion = $("#accordion-"+tipo);
-        $.each( home[tipo].aulas , function ( index, value ){
-            let aula = home[tipo].aulas[index];
+        let accordion = $("#accordion-"+tipo);
+        let aulas = home[tipo].aulas;
+        if(home[tipo].sort) {
+            aulas = aulas.sort(comparar);
+        }
+        $.each( aulas , function ( index, value ){
+            let aula = aulas[index];
             let ul = '<ul>';
             if(aula.jogos.length==0) {
                 ul += '<li>Não existe jogo associados a esse tema!</li>'
@@ -42,8 +47,8 @@ $.get("json/home.json", function(data, status){
 });
 });
 
-function convertNome(nome) {
-    return nome.normalize("NFD").replace(/\p{Diacritic}/gu, "").replaceAll(" ","-")
+function comparar(a,b) {
+    return a.nome.localeCompare(b.nome);
 }
 
 function montarAccordionItem( tipo, aula, html ){

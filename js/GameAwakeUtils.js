@@ -37,3 +37,16 @@ function isMobile ()
 
 	return device;
 }
+
+function clone(objeto) {
+	if (null == objeto || "object" != typeof objeto) return objeto;
+	var copy = objeto.constructor();
+	for (var attr in objeto) {
+		if (objeto.hasOwnProperty(attr)) copy[attr] = objeto[attr];
+	}
+	return copy;
+  }
+
+function convertNome(nome) {
+    return nome.normalize("NFD").replace(/\p{Diacritic}/gu, "").replaceAll(" ","-")
+}

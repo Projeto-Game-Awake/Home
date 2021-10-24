@@ -1,9 +1,19 @@
 {
     "tema": {
+        "sort":true,
         "aulas":[
             {
                 "nome":"Estudo",
                 "jogos": [
+                ]
+            },
+            {
+                "nome":"Deus",
+                "jogos": [
+                    {
+                        "id":5,
+                        "parm":"jogo=3"
+                    }
                 ]
             }
         ]
@@ -16,6 +26,24 @@
                     {
                         "id":6,
                         "parm":""
+                    }
+                ]
+            },
+            {
+                "nome":"11 - Conhecendo e encontrando Deus em mim",
+                "jogos": [
+                    {
+                        "id":5,
+                        "parm":"jogo=3"
+                    }
+                ]
+            },
+            {
+                "nome":"15 - A Perseverança de um ideal",
+                "jogos": [
+                    {
+                        "id":7,
+                        "parm":"jogo=1"
                     }
                 ]
             }
