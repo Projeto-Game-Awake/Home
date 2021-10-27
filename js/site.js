@@ -3,7 +3,7 @@ let home = null;
 
 $.get("json/jogos.json", function(data, status){
     jogos = data.jogos;
-    jogosOrdenados = clone(jogos).sort(comparar);
+    jogosOrdenados = GameAwakeUtils.clone(jogos).sort(comparar);
     let ul = $("#accordion-jogo");
     $.each( jogosOrdenados , function ( index, value ){
         let jogo = jogosOrdenados[index];
