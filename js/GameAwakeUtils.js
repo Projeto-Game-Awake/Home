@@ -101,6 +101,14 @@ function convertNome(nome) {
     return nome.normalize("NFD").replace(/\p{Diacritic}/gu, "").replaceAll(" ","-")
 }
 
+GameAwakeUtils.getJSONName = function(jogo) {
+	if(jogo == null) {
+		return 1;
+	} else {
+		return jogo;
+	}
+}
+
 GameAwakeUtils.loadConfig = function(scene,jogo) {
 	let json = scene.cache.json.get("jogo");
 	if(json == null) {
