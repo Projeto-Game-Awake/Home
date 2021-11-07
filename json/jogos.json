@@ -2,42 +2,42 @@
     "jogos":[
         {
             "url":"https://game-awake.github.io/Memorizando-e-Aprendendo",
-            "nome":"Memorizando e aprendendo",
+            "nome":"Memorizando e aprendendo (jogável)",
             "descricao":"Jogo da Memória"
         },
         {
             "url":"/FCG",
-            "nome":"FCG",
+            "nome":"FCG (em desenvolvimento)",
             "descricao":"Falange Card Game: Equipe de resgate em diversas situações do dia a dia"
         },
         {
             "url":"/Acao-e-Reacao",
-            "nome":"Ação e Reação",
+            "nome":"Ação e Reação (jogável)",
             "descricao":"Tomar decisões"
         },
         {
             "url":"/Encarnando-outra-vez",
-            "nome":"Encarnando outra vez",
+            "nome":"Encarnando outra vez (em desenvolvimento)",
             "descricao":"Tabuleiro com perguntas, mini-games"
         },
         {
             "url":"/BRC",
-            "nome":"BRC",
+            "nome":"BRC (em desenvolvimento)",
             "descricao":"Buscando o Resgate Cernil: Uma viagem ao seu mundo íntimo dos sentimentos"
         },
         {
             "url":"/Palavras-Cruzadas",
-            "nome":"Palavras Cruzadas",
+            "nome":"Palavras Cruzadas (jogável)",
             "descricao":"Palavras Cruzadas"
         },
         {
             "url":"https://pga-Palavra-na-Testa.herokuapp.com",
-            "nome":"Palavra na Testa",
+            "nome":"Palavra na Testa (em desenvolvimento)",
             "descricao":"Cada jogador recebe uma palavra para adivinhar e tem que pedir dicas para os outros"
         },
         {
             "url":"/Sublinha-Palavras",
-            "nome":"Sublinha Palavras",
+            "nome":"Sublinha Palavras (jogável)",
             "descricao":"Caça-Palavras"
         }
     ]
