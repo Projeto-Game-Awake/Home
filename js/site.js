@@ -7,13 +7,23 @@ $.get("json/jogos.json", function(data, status){
     let ul = $("#accordion-jogo");
     $.each( jogosOrdenados , function ( index, value ){
         let jogo = jogosOrdenados[index];
+        let parenteses = jogo.nome.indexOf("(");
+        let simpleName = jogo.nome.substring(0,parenteses).trim();
+        let w1 = "";
+        let w2 = "";
+        if(screen.availWidth > 800) {
+            w1 = "style=\"width:200px;\""
+            w2 = "style=\"width:600px;\""
+        }
         let a = '<a href="'+jogo.url+'" class="list-group-item list-group-item-action flex-column align-items-start">'+
-    '  <div class="d-flex w-50 justify-content-between">'+
+    '  <div class="d-flex w-20">'+
     '    <small>'+jogo.descricao+'</small>'+
-    '    <img src="imagens/'+convertNome(jogo.nome)+'.png" />'+            
     '  </div>'+
+    '  <div class="d-flex w-30">'+
+    '    <img src="imagens/'+convertNome(simpleName)+'.png" '+w2+' />'+            
+    '  </div>'
     '</a>';
-    ul.append(montarAccordionItem("jogo",jogo,a));
+    ul.append(montarAccordionItem("jogo",jogo,simpleName,a));
     });
 
 
@@ -41,7 +51,7 @@ $.get("json/home.json", function(data, status){
                 }
             }
             ul += '</ul>';
-            accordion.append(montarAccordionItem(tipo, aula,ul));
+            accordion.append(montarAccordionItem(tipo, aula,aula.nome,ul));
         }); 
     }
 });
@@ -51,8 +61,8 @@ function comparar(a,b) {
     return a.nome.localeCompare(b.nome);
 }
 
-function montarAccordionItem( tipo, aula, html ){
-    let nome = convertNome(aula.nome);
+function montarAccordionItem( tipo, aula, nome, html ){
+    nome = convertNome(nome);
     let div = '<div class="accordion-item">' +
     ' <h2 class="accordion-header" id="heading'+nome+'">'+
     '   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse'+nome+'" aria-expanded="true" aria-controls="collapse'+nome+'">'+

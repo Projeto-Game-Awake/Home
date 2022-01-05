@@ -39,6 +39,16 @@
             "url":"/Sublinha-Palavras",
             "nome":"Sublinha Palavras (jogável)",
             "descricao":"Caça-Palavras"
+        },
+        {
+            "url":"https://game-awake.github.io/Arrisque-e-responda/",
+            "nome":"Arrisque e Responda (jogável)",
+            "descricao":"Escolha um tema, nível e responda para ganhar pontos."
+        },
+        {
+            "url":"https://game-awake.github.io/Sera-que-contem/",
+            "nome":"Será que contém (jogável)",
+            "descricao":"Jogo no estilo \"Tem ou não tem\" utilizando porcentagens."
         }
     ]
 }
